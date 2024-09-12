@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projets - Hooyia</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #f8f9fa;
+        }
+        .projects-section {
+            padding: 50px 0;
+        }
+        .project-container {
+            margin-bottom: 30px;
+            padding: 20px;
+            background: #ffffff;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .project-container i {
+            font-size: 30px;
+            margin-bottom: 10px;
+        }
+        .delete-btn {
+            cursor: pointer;
+            color: red;
+            float: right;
+            font-size: 20px;
+        }
+    </style>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container projects-section">
+        <div class="row justify-content-between align-items-center mb-4">
+            <h2 class="text-center">Projets Assignés</h2>
+            <button class="btn btn-success" data-toggle="modal" data-target="#specialityModal">Créer une Spécialité</button>
+        </div>
+
+        <div class="modal fade" id="specialityModal" tabindex="-1" aria-labelledby="specialityModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="specialityModalLabel">Nouvelle Spécialité</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <form id="specialityForm">
+                            <div class="form-group">
+                                <label for="specialityName">Nom de la Spécialité</label>
+                                <input type="text" class="form-control" id="specialityName" placeholder="Nom de la spécialité" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="specialityDescription">Description</label>
+                                <textarea class="form-control" id="specialityDescription" rows="3" placeholder="Description" required></textarea>
+                            </div>
+                            <div class="form-group">
+                                <label for="specialityIcon">Enter the icon code</label>
+                                <input type="text" class="form-control" id="specialityIcon" placeholder="fas fa icon-name" required>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Annuler</button>
+                        <button type="button" class="btn btn-primary" onclick="addSpeciality()">Créer</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row" id="projectsContainer">
+            <!-- Project 1 -->
+            <div class="col-md-6">
+                <div class="project-container">
+                    <i class="fas fa-server"></i>
+                    <h5>Hooyia Back-End</h5>
+                    <form>
+                        <div class="form-group">
+                            <label for="projectName1">Nom du Projet</label>
+                            <input type="text" class="form-control" id="projectName1" placeholder="Nom du projet">
+                        </div>
+                        <button type="submit" class="btn btn-primary">Envoyer</button>
+                    </form>
+                    <h6 class="mt-4">Tâches</h6>
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th scope="col">Nom de la Tâche</th>
+                                <th scope="col">Étudiant Assigné</th>
+                                <th scope="col">Statut</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Configurer le serveur</td>
+                                <td>Jean Dupont</td>
+                                <td>En cours</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Project 2 -->
+            <div class="col-md-6">
+                <div class="project-container">
+                    <i class="fas fa-chalkboard-teacher"></i>
+                    <h5>Hooyia E-Learning</h5>
+                    <form>
+                        <div class="form-group">
+                            <label for="projectName2">Nom du Projet</label>
+                            <input type="text" class="form-control" id="projectName2" placeholder="Nom du projet">
+                        </div>
+                        <button type="submit" class="btn btn-primary">Envoyer</button>
+                    </form>
+                    <h6 class="mt-4">Tâches</h6>
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th scope="col">Nom de la Tâche</th>
+                                <th scope="col">Étudiant Assigné</th>
+                                <th scope="col">Statut</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Créer un module</td>
+                                <td>Marie Curie</td>
+                                <td>Terminé</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Project 3 -->
+            <div class="col-md-6">
+                <div class="project-container">
+                    <i class="fas fa-paint-brush"></i>
+                    <h5>Hooyia Front-End</h5>
+                    <form>
+                        <div class="form-group">
+                            <label for="projectName3">Nom du Projet</label>
+                            <input type="text" class="form-control" id="projectName3" placeholder="Nom du projet">
+                        </div>
+                        <button type="submit" class="btn btn-primary">Envoyer</button>
+                    </form>
+                    <h6 class="mt-4">Tâches</h6>
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th scope="col">Nom de la Tâche</th>
+                                <th scope="col">Étudiant Assigné</th>
+                                <th scope="col">Statut</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Concevoir l'interface</td>
+                                <td>Luc Martin</td>
+                                <td>À faire</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Project 4 -->
+            <div class="col-md-6">
+                <div class="project-container">
+                    <i class="fas fa-robot"></i>
+                    <h5>Hooyia Robotics</h5>
+                    <form>
+                        <div class="form-group">
+                            <label for="projectName4">Nom du Projet</label>
+                            <input type="text" class="form-control" id="projectName4" placeholder="Nom du projet">
+                        </div>
+                        <button type="submit" class="btn btn-primary">Envoyer</button>
+                    </form>
+                    <h6 class="mt-4">Tâches</h6>
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th scope="col">Nom de la Tâche</th>
+                                <th scope="col">Étudiant Assigné</th>
+                                <th scope="col">Statut</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Programmer le robot</td>
+                                <td>Anna Belle</td>
+                                <td>En cours</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Project 5 -->
+            <div class="col-md-12">
+                <div class="project-container">
+                    <i class="fas fa-chart-line"></i>
+                    <h5>Hooyia Data-Analyses</h5>
+                    <form>
+                        <div class="form-group">
+                            <label for="projectName5">Nom du Projet</label>
+                            <input type="text" class="form-control" id="projectName5" placeholder="Nom du projet">
+                        </div>
+                        <button type="submit" class="btn btn-primary">Envoyer</button>
+                    </form>
+                    <h6 class="mt-4">Tâches</h6>
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th scope="col">Nom de la Tâche</th>
+                                <th scope="col">Étudiant Assigné</th>
+                                <th scope="col">Statut</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Analyser les données</td>
+                                <td>Paul Durand</td>
+                                <td>À faire</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script>
+        function addSpeciality() {
+            const name = document.getElementById('specialityName').value;
+            const icon = document.getElementById('specialityIcon').value;
+            const description = document.getElementById('specialityDescription').value;
+
+            // Créer un nouvel élément pour la spécialité avec la même structure que les projets
+            const specialityHTML = `
+                <div class="col-md-6">
+                    <div class="project-container">
+                        <i class="${icon}"></i>
+                        <h5>${name} <span class="delete-btn" onclick="deleteSpeciality(this)">&times;</span></h5>
+                        <p>${description}</p>
+                        <form>
+                        <div class="form-group">
+                            <label for="projectName5">Nom du Projet</label>
+                            <input type="text" class="form-control" id="projectName5" placeholder="Nom du projet">
+                        </div>
+                        <button type="submit" class="btn btn-primary">Envoyer</button>
+                    </form>
+                        <h6 class="mt-4">Tâches</h6>
+                        
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th scope="col">Nom de la Tâche</th>
+                                    <th scope="col">Étudiant Assigné</th>
+                                    <th scope="col">Statut</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Aucune</td>
+                                    <td>Aucun</td>
+                                    <td>À faire</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            `;
+            
+            // Ajouter la spécialité au conteneur
+            const projectsContainer = document.getElementById('projectsContainer');
+            projectsContainer.insertAdjacentHTML('beforeend', specialityHTML);
+
+            // Réinitialiser le formulaire et fermer le modal
+            document.getElementById('specialityForm').reset();
+            $('#specialityModal').modal('hide');
+        }
+
+        function deleteSpeciality(element) {
+            // Supprimer l'élément parent (la spécialité)
+            const specialityContainer = element.closest('.col-md-6');
+            specialityContainer.remove();
+        }
+    </script>
+</body>
+</html>
